@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:checked="true"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home"
+        app:cnb_iconColor="@color/home" />
+
+    <item
+        android:id="@+id/movies"
+        android:icon="@drawable/ic_movies"
+        android:title="@string/movies"
+        app:cnb_iconColor="@color/movies" />
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/ic_search"
+        android:title="@string/search"
+        app:cnb_iconColor="@color/colorPrimaryDark" />
+
+    <item
+        android:id="@+id/series"
+        android:icon="@drawable/ic_series"
+        android:title="@string/series"
+        app:cnb_iconColor="@color/series" />
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/profile"
+        app:cnb_iconColor="@color/profile" />
+</menu>

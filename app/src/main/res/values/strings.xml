@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">netflixNchill</string>
+
+    <!-- Random Image URL -->
+    <string name="randomImage">https://www.picsum.photos/200</string>
+
+    <!-- Menu Items -->
+    <string name="movies">Movies</string>
+    <string name="home">Home</string>
+    <string name="series">Series</string>
+    <string name="profile">Profile</string>
+    <string name="search">Search</string>
+</resources>

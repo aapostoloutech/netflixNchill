@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#00000000</color>
+
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#272727</color>
+    <color name="colorAccent">#000000</color>
+    <color name="colorBackground">#FFFFFF</color>
+    <color name="colorText">#272727</color>
+
+    <color name="home">#96E6B3</color>
+    <color name="movies">#087E8B</color>
+    <color name="series">#C08497</color>
+    <color name="profile">#D0CCD0</color>
+</resources>
