@@ -10,4 +10,14 @@
     <string name="series">Series</string>
     <string name="profile">Profile</string>
     <string name="search">Search</string>
+
+    <!-- Login / Sign Up -->
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="local_user">Local User</string>
+
+    <string name="or">OR</string>
+    <string name="and">AND</string>
+
 </resources>

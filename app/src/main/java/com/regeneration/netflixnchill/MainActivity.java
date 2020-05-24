@@ -7,11 +7,17 @@ import android.os.Bundle;
 
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
+import com.regeneration.netflixnchill.Class.TMDB;
+import com.regeneration.netflixnchill.Class.Utils;
+
 import com.regeneration.netflixnchill.Fragment.HomeTab;
+import com.regeneration.netflixnchill.Fragment.LoginTab;
 import com.regeneration.netflixnchill.Fragment.MoviesTab;
 import com.regeneration.netflixnchill.Fragment.ProfileTab;
 import com.regeneration.netflixnchill.Fragment.SearchTab;
 import com.regeneration.netflixnchill.Fragment.SeriesTab;
+
+import java.sql.SQLOutput;
 
 public class MainActivity extends AppCompatActivity {
     ChipNavigationBar navigationBar;
@@ -47,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                         fragment = new SeriesTab();
                         break;
                     case R.id.profile:
-                        fragment = new ProfileTab();
+                        fragment = Utils.isLoggedin() ? new ProfileTab() : new LoginTab();
                         break;
                     default:
                         fragment = new HomeTab();
