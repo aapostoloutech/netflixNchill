@@ -1,6 +1,7 @@
 package com.regeneration.netflixnchill.Class;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -9,6 +10,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+import com.regeneration.netflixnchill.Class.JSON.JsonCallback;
+import com.regeneration.netflixnchill.Class.JSON.JsonErrorModel;
+import com.regeneration.netflixnchill.Class.JSON.JsonModel;
+import com.regeneration.netflixnchill.Class.Movie.JsonModelDiscoverMovie;
 
 public class TMDB {
     private JsonCallback callback;
@@ -46,9 +51,11 @@ public class TMDB {
     public void handleResponse(String response) {
         JsonModel model = new Gson().fromJson(response, this.model.getClass());
 
+        Log.i("", model.getClass().toString());
+
         try {
             callback.call(model);
-        } catch (Exception e){}
+        } catch (Exception e) { }
     }
 
     public void handleResponseError(String error) {

@@ -1,10 +1,10 @@
 package com.regeneration.netflixnchill.Class.Movie;
 
-import com.regeneration.netflixnchill.Class.JsonModel;
+import com.regeneration.netflixnchill.Class.JSON.JsonModel;
 
 import java.util.List;
 
-public class JsonModelM extends JsonModel {
+public class JsonModelDiscoverMovie extends JsonModel {
     private int page;
     private int total_results;
     private int total_pages;

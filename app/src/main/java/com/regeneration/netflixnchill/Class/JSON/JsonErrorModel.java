@@ -1,4 +1,4 @@
-package com.regeneration.netflixnchill.Class;
+package com.regeneration.netflixnchill.Class.JSON;
 
 public class JsonErrorModel {
     private String status_code;

@@ -1,4 +1,4 @@
-package com.regeneration.netflixnchill.Class;
+package com.regeneration.netflixnchill.Class.Series;
 
 public class Series {
     private String original_name;
