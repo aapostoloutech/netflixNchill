@@ -5,10 +5,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.regeneration.netflixnchill.Class.Item;
 import com.regeneration.netflixnchill.Class.JSON.JsonCallback;
@@ -21,6 +23,8 @@ import com.regeneration.netflixnchill.Class.Utils;
 import com.regeneration.netflixnchill.Fragment.Sub.HorizontalView;
 import com.regeneration.netflixnchill.R;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -28,7 +32,7 @@ public class HomeTab extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.tab_home, container, false);
+        View view = inflater.inflate(R.layout.tab_home, container, false);
         return view;
     }
 
@@ -60,26 +64,26 @@ public class HomeTab extends Fragment {
             public void call(JsonModelTrending model) throws Exception {
                 // Trending
                 ArrayList<Item> items = new ArrayList<>();
-                for (JsonModelTrendingAll m : model.getResults()){
+                for (JsonModelTrendingAll m : model.getResults()) {
                     items.add(new Item(m.getId(), m.getPoster_path()));
                 }
-                 // - Fill with Images
+                // - Fill with Images
                 ((HorizontalView) fragmentTrending).fillView(items);
 
 
                 // Categories
                 HashMap<Integer, Integer> genres = new HashMap<>();
-                for (JsonModelTrendingAll m : model.getResults()){
-                    for (int g : m.getGenre_ids()){
+                for (JsonModelTrendingAll m : model.getResults()) {
+                    for (int g : m.getGenre_ids()) {
                         genres.put(g, genres.containsKey(g) ? genres.get(g) + 1 : 1);
                     }
                 }
                 ArrayList<Integer> trending_genre = new ArrayList<>();
-                while (genres.size() > 0){
+                while (genres.size() > 0) {
                     int maxV = -1;
                     int maxK = -1;
-                    for(int key : genres.keySet()){
-                        if (genres.get(key) > maxV){
+                    for (int key : genres.keySet()) {
+                        if (genres.get(key) > maxV) {
                             maxV = genres.get(key);
                             maxK = key;
                         }
@@ -90,7 +94,7 @@ public class HomeTab extends Fragment {
                 }
 
                 Utils.sos();
-                Log.i("",trending_genre.toString());
+                Log.i("", trending_genre.toString());
                 Utils.sos();
             }
         });
@@ -101,16 +105,16 @@ public class HomeTab extends Fragment {
         url = "https://api.themoviedb.org/3/discover/movie?api_key=" + Utils.api_key + "&sort_by=popularity.desc";
         // - Create Horizontal View - Trending
         final Fragment fragmentPopular = new HorizontalView("Popular");
-                getChildFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.popular_container, fragmentPopular, "trending")
-                        .commit();
+        getChildFragmentManager()
+                .beginTransaction()
+                .replace(R.id.popular_container, fragmentPopular, "trending")
+                .commit();
         // - (Async) API Request
         TMDB discover = new TMDB(this.getContext(), url, new JsonModelDiscoverMovie(), new JsonCallback() {
             public void call(JsonModelDiscoverMovie model) throws Exception {
-
+                // Popular
                 ArrayList<Item> items = new ArrayList<>();
-                for (Movie m : model.getResults()){
+                for (Movie m : model.getResults()) {
                     items.add(new Item(m.getId(), m.getPoster_path()));
                 }
 
