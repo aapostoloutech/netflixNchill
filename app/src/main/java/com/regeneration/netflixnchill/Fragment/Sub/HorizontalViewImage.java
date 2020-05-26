@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.regeneration.netflixnchill.Class.Item;
 import com.regeneration.netflixnchill.Class.Movie.Movie;
 import com.regeneration.netflixnchill.R;
 import com.squareup.picasso.Picasso;
@@ -22,8 +23,8 @@ public class HorizontalViewImage extends Fragment {
 
     String src;
 
-    public HorizontalViewImage(Movie m) {
-        this.src = m.getPoster_path();
+    public HorizontalViewImage(Item i) {
+        this.src = i.getPoster_path();
     }
 
     @Nullable

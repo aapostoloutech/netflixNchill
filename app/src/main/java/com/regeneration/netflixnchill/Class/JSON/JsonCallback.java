@@ -14,8 +14,12 @@ public class JsonCallback<T> implements Callable {
         Log.i("","Default call JsonModel");
 
         if (model.getClass() == JsonModelDiscoverMovie.class){ call((JsonModelDiscoverMovie) model); } // <- Πολύ κακό
+        else if (model.getClass() == JsonModelTrending.class){ call((JsonModelTrending) model); } // <- Πολύ κακό
     }
     public void call(JsonModelDiscoverMovie model) throws Exception {
-        Log.i("","Default call JsonModelM");
+        Log.i("","Default call JsonModelDiscoverMovie");
+    }
+    public void call(JsonModelTrending model) throws Exception {
+        Log.i("","Default call JsonModelTrending");
     }
 }

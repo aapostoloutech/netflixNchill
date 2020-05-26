@@ -1,6 +1,7 @@
 package com.regeneration.netflixnchill.Class;
 
 import android.content.Context;
+import android.util.Log;
 
 public class Utils {
     public static String api_key = "0c0b169072612ced994048362b7f5c01";
@@ -23,6 +24,12 @@ public class Utils {
     }
     public static void setLoggedin(boolean value) {
         loggedin = value;
+    }
+
+    public static void sos() {
+        Log.i("","=========================================");
+        Log.i("","==              IT'S ALIVE             ==");
+        Log.i("","=========================================");
     }
 }
 

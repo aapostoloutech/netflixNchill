@@ -1,6 +1,7 @@
 package com.regeneration.netflixnchill.Fragment.Sub;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +13,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.regeneration.netflixnchill.Class.Movie.Movie;
+import com.regeneration.netflixnchill.Class.Item;
 import com.regeneration.netflixnchill.R;
-
-import android.util.Log; // DELETE
 
 import java.util.ArrayList;
 
@@ -23,11 +22,9 @@ public class HorizontalView extends Fragment {
     View view;
 
     String title;
-    ArrayList<Movie> movies = new ArrayList<>();
 
-    public HorizontalView(String title, ArrayList<Movie> movies) {
+    public HorizontalView(String title) {
         this.title = title;
-        this.movies = movies;
     }
 
     @Nullable
@@ -45,17 +42,23 @@ public class HorizontalView extends Fragment {
         // Set Title
         TextView text_title = view.findViewById(R.id.title);
         text_title.setText(title);
+    }
 
-        // Add Images
-        FragmentManager fragmentManager = getChildFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+    public void fillView(ArrayList<Item> items){
+        for (final Item i : items){
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    FragmentManager fragmentManager = getChildFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        for (Movie m : movies){
-            // Add Favorites Horizontal View
-            Fragment fragment = new HorizontalViewImage(m);
-            fragmentTransaction.add(R.id.image_container, fragment);
+                    // Add Favorites Horizontal View
+                    Fragment fragment = new HorizontalViewImage(i);
+                    fragmentTransaction.add(R.id.container, fragment);
+
+                    fragmentTransaction.commit();
+                }
+            }).start();
         }
-
-        fragmentTransaction.commit();
     }
 }

@@ -13,7 +13,6 @@ import com.google.gson.Gson;
 import com.regeneration.netflixnchill.Class.JSON.JsonCallback;
 import com.regeneration.netflixnchill.Class.JSON.JsonErrorModel;
 import com.regeneration.netflixnchill.Class.JSON.JsonModel;
-import com.regeneration.netflixnchill.Class.Movie.JsonModelDiscoverMovie;
 
 public class TMDB {
     private JsonCallback callback;
