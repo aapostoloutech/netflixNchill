@@ -1,7 +1,6 @@
 package com.regeneration.netflixnchill.Class;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -50,10 +49,8 @@ public class TMDB {
     public void handleResponse(String response) {
         JsonModel model = new Gson().fromJson(response, this.model.getClass());
 
-        Log.i("", model.getClass().toString());
-
         try {
-            callback.call(model);
+            callback.run(model);
         } catch (Exception e) { }
     }
 

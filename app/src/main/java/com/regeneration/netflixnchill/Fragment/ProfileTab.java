@@ -12,14 +12,11 @@ import androidx.fragment.app.Fragment;
 import com.regeneration.netflixnchill.R;
 
 public class ProfileTab extends Fragment {
-    View view;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.tab_profile, container, false);
-
-        return view;
+        return inflater.inflate(R.layout.tab_profile, container, false);
     }
 
     @Override

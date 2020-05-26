@@ -1,7 +1,6 @@
 package com.regeneration.netflixnchill.Fragment.Sub;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,29 +18,36 @@ import com.regeneration.netflixnchill.R;
 import java.util.ArrayList;
 
 public class HorizontalView extends Fragment {
-    View view;
-
     String title;
+    String position = null;
 
     public HorizontalView(String title) {
         this.title = title;
+    }
+    public HorizontalView(String title, String position) {
+        this.title = title;
+        this.position = position;
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view =  inflater.inflate(R.layout.template_horizontalview, container, false);
-
-        return view;
+        return inflater.inflate(R.layout.template_horizontalview, container, false);
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         // Set Title
-        TextView text_title = view.findViewById(R.id.title);
+        TextView text_title = getView().findViewById(R.id.title);
         text_title.setText(title);
+
+        if (position != null){
+            if (position == "right") {
+                text_title.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
+            }
+        }
     }
 
     public void fillView(ArrayList<Item> items){
@@ -54,7 +60,7 @@ public class HorizontalView extends Fragment {
 
                     // Add Favorites Horizontal View
                     Fragment fragment = new HorizontalViewImage(i);
-                    fragmentTransaction.add(R.id.container, fragment);
+                    fragmentTransaction.add(R.id.image_container, fragment);
 
                     fragmentTransaction.commit();
                 }
